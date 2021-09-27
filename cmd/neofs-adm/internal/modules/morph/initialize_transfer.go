@@ -125,6 +125,7 @@ func (c *initializeContext) multiSign(tx *transaction.Transaction, accType strin
 }
 
 func (c *initializeContext) transferGASToProxy() error {
+	return nil
 	gasHash := c.nativeHash(nativenames.Gas)
 	proxyCs := c.getContract(proxyContract)
 

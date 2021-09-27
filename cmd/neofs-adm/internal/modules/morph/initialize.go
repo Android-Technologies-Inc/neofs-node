@@ -8,7 +8,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/nspcc-dev/neo-go/pkg/core/native/nativenames"
 	"github.com/nspcc-dev/neo-go/pkg/core/transaction"
 	"github.com/nspcc-dev/neo-go/pkg/crypto/keys"
 	"github.com/nspcc-dev/neo-go/pkg/rpc/client"
@@ -286,16 +285,16 @@ func getNativeHashes(c *client.Client) (map[string]util.Uint160, error) {
 		return nil, fmt.Errorf("can't get native contract hashes: %w", err)
 	}
 
-	notaryEnabled := false
+	//notaryEnabled := false
 	nativeHashes := make(map[string]util.Uint160, len(ns))
 	for i := range ns {
-		if ns[i].Manifest.Name == nativenames.Notary {
-			notaryEnabled = len(ns[i].UpdateHistory) > 0
-		}
+		//if ns[i].Manifest.Name == nativenames.Notary {
+		//	notaryEnabled = len(ns[i].UpdateHistory) > 0
+		//}
 		nativeHashes[ns[i].Manifest.Name] = ns[i].Hash
 	}
-	if !notaryEnabled {
-		return nil, errors.New("notary contract must be enabled")
-	}
+	//if !notaryEnabled {
+	//	return nil, errors.New("notary contract must be enabled")
+	//}
 	return nativeHashes, nil
 }

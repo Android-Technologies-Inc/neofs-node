@@ -9,6 +9,7 @@ import (
 )
 
 func (c *initializeContext) setNotaryAndAlphabetNodes() error {
+	return nil
 	if ok, err := c.setRolesFinished(); ok || err != nil {
 		if err == nil {
 			c.Command.Println("Stage 2: already performed.")
